@@ -1,0 +1,50 @@
+plugins {
+	id 'java'
+	id 'idea'
+	id 'checkstyle'
+	id 'pmd'
+}
+
+sourceSets {
+	main {
+		java {
+			srcDirs  = ['src']
+		}
+		
+		resources {
+			srcDirs = ['src']
+		}
+	}
+	
+	test {
+		java {
+			srcDirs = ['test']
+		}
+		
+		resources {
+			srcDirs = ['test']
+		}
+	}
+}
+
+tasks.named('test') {
+    useJUnitPlatform() 
+}
+
+dependencies {
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
+}
+
+repositories {
+      mavenCentral()
+}
+
+checkstyle {
+  toolVersion "10.9.3"
+}
+
+tasks.withType(Checkstyle) {
+  reports {
+    html.destination rootProject.file("build/reports/checkstyle.html")
+  }
+}

@@ -1,0 +1,14 @@
+*/build
+*/.cache/*
+
+# Python
+**/__pycache__/*
+*/__pycache__/*
+*/.venv/*
+
+# java
+*/.gradle
+**/.idea/
+*/gradle/
+*/gradlew
+*/gradlew.bat
